@@ -58,10 +58,27 @@ class StreamProcessor(object):
 
         # TODO: WRITE CODE HERE:
 
+        while total < 200:
+            if count == 10: return count
+
+            digits = self._stream.read(2)
+            if len(digits) < 2: return count
+
+            digits = int(digits)
+            total += digits
+            count += 1
+        return count
+
         # Just some example syntax, you can read two digits from the head of the
         # stream using the following code:
         #
         # digits = self._stream.read(2)
 
 
-        return count
+
+
+
+if __name__ == '__main__':
+    my_stream_processor = StreamProcessor(io.StringIO("23475"))
+    result = my_stream_processor.process()
+    print(result)
