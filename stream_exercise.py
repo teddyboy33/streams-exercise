@@ -62,7 +62,7 @@ class StreamProcessor(object):
             if count == 10: return count
 
             digits = self._stream.read(2)
-            if len(digits) < 2: return count
+            if len(digits) < 2: break
 
             digits = int(digits)
             total += digits
